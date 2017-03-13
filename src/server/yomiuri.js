@@ -8,7 +8,6 @@ export const getYomiuriOpinions = () => {
     $('ul.list-common > li').each(function () {
       const url = $(this).find('a').attr('href');
       const headline = $(this).find('span.headline').text();
-
       result.push({ url, headline });
     });
   });
@@ -22,5 +21,3 @@ export const getYomiuriOpinion = (opinionUrl) => {
     });
   });
 };
-
-getYomiuriOpinion('http://www.yomiuri.co.jp/editorial/20170312-OYT1T50108.html');
