@@ -2,7 +2,7 @@ import client from 'cheerio-httpcli';
 
 const yomiuriUrl = 'http://www.yomiuri.co.jp/editorial/';
 
-export const getYomiuriList = () => {
+export const getYomiuriOpinions = () => {
   client.fetch(yomiuriUrl, (err, $) => {
     const result = [];
     $('ul.list-common > li').each(function () {
@@ -13,3 +13,14 @@ export const getYomiuriList = () => {
     });
   });
 };
+
+export const getYomiuriOpinion = (opinionUrl) => {
+  client.fetch(opinionUrl, (err, $) => {
+    const result = [];
+    $('div.article > article > p').each(function () {
+      result.push($(this).text());
+    });
+  });
+};
+
+getYomiuriOpinion('http://www.yomiuri.co.jp/editorial/20170312-OYT1T50108.html');
