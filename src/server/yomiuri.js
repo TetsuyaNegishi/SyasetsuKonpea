@@ -1,4 +1,3 @@
-import client from 'cheerio-httpcli';
 import parseWebPage from './parseWebPage';
 
 const yomiuriUrl = 'http://www.yomiuri.co.jp/editorial/';
@@ -13,12 +12,10 @@ export const getYomiuriOpinions = () => parseWebPage(yomiuriUrl, ($) => {
   return result;
 });
 
-
-export const getYomiuriOpinion = (opinionUrl) => {
-  client.fetch(opinionUrl, (err, $) => {
-    const result = [];
-    $('div.article > article > p').each(function () {
-      result.push($(this).text());
-    });
+export const getYomiuriOpinion = opinionUrl => parseWebPage(opinionUrl, ($) => {
+  const result = [];
+  $('div.article > article > p').each(function () {
+    result.push($(this).text());
   });
-};
+  return result;
+});
