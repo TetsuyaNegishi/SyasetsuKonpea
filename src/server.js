@@ -25,8 +25,10 @@ app.get('/yomiuri', (req, res) => {
   }
 });
 
+app.set('port', (process.env.PORT || 4000));
+
 // サーバーを起動する部分
-const server = app.listen(3000, () => {
+const server = app.listen(app.get('port'), () => {
   const host = server.address().address;
   const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
