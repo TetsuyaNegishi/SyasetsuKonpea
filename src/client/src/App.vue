@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+     <vue-header></vue-header>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello';
+import VueHeader from './components/Header';
 
 export default {
   name: 'app',
   components: {
-    Hello,
+    VueHeader,
   },
 };
 </script>
@@ -23,6 +22,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
