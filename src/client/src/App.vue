@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-     <vue-header></vue-header>
+    <vue-header></vue-header>
   </div>
 </template>
 
